@@ -9,10 +9,6 @@ use Tests\TestCase;
 
 class CheckoutTest extends TestCase
 {
-    /**
-     * Test multiple items added.
-     */
-
 
     private function test_request($items_id)
     {
