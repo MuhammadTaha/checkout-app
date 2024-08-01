@@ -24,7 +24,7 @@ class ItemOffersSeeder extends Seeder
                 'items_id' => 3,
                 'title' => '2 for 1',
                 'quantity' => 2,
-                'price' => 1,
+                'price' => 3,
             ],
 
         ];

@@ -16,23 +16,23 @@ class ItemSeeder extends Seeder
         $items = [
             [
                 'title' => 'A',
-                'unit_price' => 0.25,
+                'unit_price' => 1,
             ],
             [
                 'title' => 'B',
-                'unit_price' => 0.60,
+                'unit_price' => 2,
             ],
             [
                 'title' => 'C',
-                'unit_price' => 0.15,
+                'unit_price' => 3,
             ],
             [
                 'title' => 'D',
-                'unit_price' => 0.50,
+                'unit_price' => 4,
             ],
             [
                 'title' => 'E',
-                'unit_price' => 0.80,
+                'unit_price' => 5,
             ],
         ];
 

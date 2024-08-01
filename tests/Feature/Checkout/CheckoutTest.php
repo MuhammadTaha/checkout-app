@@ -19,14 +19,22 @@ class CheckoutTest extends TestCase
             'order_list' => [
                 [
                     'items_id' => 1,
-                    'quantity' => 1,
+                    'quantity' => 2,
+                    'price' => 2,
                 ],
                 [
                     'items_id' => 2,
                     'quantity' => 1,
+                    'price' => 1,
                 ],
+                [
+                    'items_id' => 3,
+                    'quantity' => 1,
+                    'price' => 1,
+                ],
+
             ],
-            'total_amount' => 2,
+            'total_amount' => 4,
         ]);
 
         $this->assertInstanceOf(Response::class, $response->json());
@@ -36,16 +44,20 @@ class CheckoutTest extends TestCase
                 [
                     'items_id' => 1,
                     'quantity' => 2,
-                    'total_price' => 2,
-
+                    'price' => 2,
                 ],
                 [
                     'items_id' => 2,
                     'quantity' => 1,
-                    'total_price' => 1,
+                    'price' => 1,
+                ],
+                [
+                    'items_id' => 3,
+                    'quantity' => 1,
+                    'price' => 1,
                 ],
             ],
-            'total_amount' => 2.5,
+            'total_amount' => 4,
         ]);
 
         $response->assertStatus(200);

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Services;
 
 use App\Models\Item;
 use App\Models\ItemOffers;
 
-class ItemOffersRepositories
+class ItemOffersService
 {
     public function getItemOffers(Item $item)
     {

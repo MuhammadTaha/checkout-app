@@ -12,4 +12,10 @@ class Response extends Model
     public $data;
     public $message;
     public $status;
+
+    public $fillable = [
+        'data',
+        'message',
+        'status'
+    ];
 }
