@@ -17,17 +17,11 @@ class ItemPriceFactory extends Factory
     public function definition(): array
     {
         return [
-            // $table->foreignId('item_id')->constrained();
-            // $table->string('title');
-            // $table->integer('quantity');
-            // $table->float('percentage', 2);
 
-            'item_id' => $this->faker->numberBetween(1, 10),
+            'items_id' => $this->faker->numberBetween(1, 10),
             'title' => "3 for 2",
             'quantity' => $this->faker->numberBetween(1, 10),
             'percentage' => $this->faker->randomFloat(2, 1, 100),
-
-
         ];
     }
 }

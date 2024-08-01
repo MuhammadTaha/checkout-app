@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('items_id');
             $table->string('title');
             $table->integer('quantity');
-            $table->float('percentage', 2);
+            $table->float('price', 2);
             $table->timestamps();
 
 

@@ -9,6 +9,6 @@ class ItemOffersRepositories
 {
     public function getItemOffers(Item $item)
     {
-        return ItemOffers::where('item_id', $item->id)->get();
+        return ItemOffers::where('items_id', $item->id)->get();
     }
 }

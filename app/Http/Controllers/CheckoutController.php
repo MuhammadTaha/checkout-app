@@ -19,7 +19,7 @@ class CheckoutController extends Controller
     public function addItem(Request $request)
     {
         $request->validate([
-            'item_id' => 'required|integer',
+            'items_id' => 'required|integer',
             'order_list' => 'required|array',
             'total_amount' => 'required|numeric',
         ]);
@@ -27,7 +27,7 @@ class CheckoutController extends Controller
         $data = json_encode($request->all());
 
 
-        $itemOffers = $this->itemOffersRepositories->getItemOffers(Item::find($request->item_id));
+        $itemOffers = $this->itemOffersRepositories->getItemOffers(Item::find($request->items_id));
 
 
 

@@ -15,14 +15,14 @@ class CheckoutTest extends TestCase
     public function test_multiple_items_add(): void
     {
         $response = $this->post('/api/checkout', [
-            'item_id' => 1,
+            'items_id' => 1,
             'order_list' => [
                 [
-                    'item_id' => 1,
+                    'items_id' => 1,
                     'quantity' => 1,
                 ],
                 [
-                    'item_id' => 2,
+                    'items_id' => 2,
                     'quantity' => 1,
                 ],
             ],
@@ -34,13 +34,13 @@ class CheckoutTest extends TestCase
         $response->assertJsonIsObject([
             'order_list' => [
                 [
-                    'item_id' => 1,
+                    'items_id' => 1,
                     'quantity' => 2,
                     'total_price' => 2,
 
                 ],
                 [
-                    'item_id' => 2,
+                    'items_id' => 2,
                     'quantity' => 1,
                     'total_price' => 1,
                 ],
