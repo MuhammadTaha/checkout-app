@@ -18,4 +18,11 @@ class Response extends Model
         'message',
         'status'
     ];
+
+    public function __construct($data, $message, $status)
+    {
+        $this->data = $data;
+        $this->message = $message;
+        $this->status = $status;
+    }
 }

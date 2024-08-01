@@ -25,19 +25,20 @@ class OrderService
         });
 
         if ($addedItem) {
-            // incrementing the quantity of the item
+            // increasing the quantity of the item
             $addedItem['quantity'] += 1;
-
             // calculate offer
-            if ($addedItem['quantity'] >= $itemOffers[0]->quantity) {
+            if ($itemOffers->isNotEmpty() && ($addedItem['quantity'] >= $itemOffers[0]->quantity)) {
 
                 $addedItem['price'] = (($addedItem['quantity'] % $itemOffers[0]->quantity) * floatval($item->unit_price) + (floatval($itemOffers[0]->price)) * floor($addedItem['quantity'] / $itemOffers[0]->quantity));
+            } else {
+                $addedItem['price'] = $addedItem['quantity'] * floatval($item->unit_price);
             }
         }
 
 
         // remove the item from the order list
-        $orderList = Arr::where($orderList, function ($listItem) use ($item, $totalPrice) {
+        $orderList = Arr::where($orderList, function ($listItem) use ($item) {
             return $listItem["items_id"] != $item->id;
         });
 
@@ -46,6 +47,6 @@ class OrderService
         // get sum of price of all items in the order list
         $totalPrice = array_sum(array_column($orderList, 'price'));
 
-        return [$item, $orderList, $totalPrice];
+        return ["order_list"=>$orderList, "total_amount"=>$totalPrice];
     }
 }

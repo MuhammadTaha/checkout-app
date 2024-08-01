@@ -12,6 +12,7 @@ use App\Services\OrderService;
 use Illuminate\Cache\Repository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Http;
 
 class CheckoutController extends Controller
 {
@@ -32,10 +33,14 @@ class CheckoutController extends Controller
             'total_amount' => 'required|numeric',
         ]);
 
-        // create a variable of type CheckoutList
-         $updatedCheckoutList = $this->orderService->updatePrices(Item::find($request->items_id), $request->order_list, $request->total_amount);
+        $item = Item::find($request->items_id);
 
-        return new Response($updatedCheckoutList, 'Item added successfully', 200);
+        if(empty($item)) {
+            return response()->json( 'Item not found', 500);
+        }
+        // create a variable of type CheckoutList
+        $updatedCheckoutList = $this->orderService->updatePrices($item, $request->order_list, $request->total_amount);
+        return response($updatedCheckoutList, 200);
 
     }
 
